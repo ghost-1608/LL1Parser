@@ -135,7 +135,7 @@ void cstkinit(CHRSTK* cstk, size_t size)
  */
 inline int cstkpush(CHRSTK* cstk, char x)
 {
-  if (cstk->top == cstk->size) return -1;
+  if (cstk->top == cstk->size or cstk->top < 0) return -1;
   cstk->data[cstk->top++] = x;
 }
 
@@ -168,7 +168,7 @@ inline int cstkextend(CHRSTK* cstk, char* str, size_t len)
  */
 inline char cstkpop(CHRSTK* cstk)
 {
-  if (cstk->top == 0) return 0;
+  if (cstk->top <= 0) return 0;
   return cstk->data[--cstk->top];
 }
 
