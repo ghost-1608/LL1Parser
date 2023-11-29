@@ -91,7 +91,7 @@ int ll1(char* inp_arg, char start_symbol, HTABLE* table)
   {
     char chr = inp[i];
     char symbol = cstkpop(&stack);
-
+    
     if (isnonterminal(symbol, table))
     {
       // Replace stack symbol suing parse tables
@@ -366,6 +366,11 @@ int main()
     printf("Accepted!\n");
   else
     printf("Rejected!\n");
-  
+
+  // Cleaning up
+  for (int i = 0; i < 6; i++)
+    htblfree(hin[i]);
+  htblfree(table);
+
   return 0;
 }
