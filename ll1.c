@@ -83,7 +83,7 @@ int ll1 (char *inp_arg, char start_symbol, HTABLE *table)
 
   cstkpush (&stack, '$');
   cstkpush (&stack, start_symbol);
-  strncpy (inp, inp_arg, 64);   // Copying in order to safely modify input string buffer
+  strncpy (inp, inp_arg, 64);   // Copying in to safely modify input string buffer
   strcat (inp, "$");
 
   // Main loop
